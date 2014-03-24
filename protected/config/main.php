@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 
 
-if (!empty($_SERVER['HTTP_HOST']) && strpos($_SERVER['HTTP_HOST'], 'localdomain') === FALSE) {
+if (!empty($_SERVER['HTTP_HOST']) && strpos($_SERVER['HTTP_HOST'], 'localhost') === FALSE) {
     // Parse the json file with ADDONS credentials
     $string = file_get_contents($_ENV['CRED_FILE'], false);
 
@@ -39,9 +39,9 @@ return array(
 		
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-			'password'=>'Enter Your Password Here',
+			'password'=>'gii',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'ipFilters'=>array('127.0.0.1','::1'),
+			//'ipFilters'=>array('127.0.0.1','localhost'),
 		),
 		
 	),
@@ -79,17 +79,17 @@ return array(
 			   */
 	
 		// uncomment the following to use a MySQL database
-		/*
+		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=testdrive',
+			'connectionString' => 'mysql:host=localhost;dbname=yiidb',
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
+			'username' => 'admin',
+			'password' => 'Drowssa1',
 			'charset' => 'utf8',
 		),
-		*/
 		
 		
+   	   /*
 			'db'=>array(
 	    'connectionString' => 'mysql:host=' . $creds["MYSQLS"]["MYSQLS_HOSTNAME"] . ';dbname=' . $creds["MYSQLS"]["MYSQLS_DATABASE"],
 	    'emulatePrepare' => true,
@@ -97,8 +97,9 @@ return array(
 	    'password' => $creds["MYSQLS"]["MYSQLS_PASSWORD"],
 	    'charset' => 'utf8',
 			),
+		*/	
 			
-		'errorHandler'=>array(
+  		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
 		),
