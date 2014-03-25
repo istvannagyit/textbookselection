@@ -18,12 +18,12 @@ if (!empty($_SERVER['HTTP_HOST']) && strpos($_SERVER['HTTP_HOST'], 'localhost') 
     $creds = json_decode($string, true);
 }
 
-
+   
 
 
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'The Hill - Textbooks',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -56,6 +56,8 @@ return array(
 		
 		'urlManager'=>array(
 			'urlFormat'=>'path',
+			'showScriptName'=>false,
+    		'caseSensitive'=>false,  
 			'rules'=>array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
@@ -83,7 +85,7 @@ return array(
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=yiidb',
 			'emulatePrepare' => true,
-			'username' => 'admin',
+			'username' => 'inagy',
 			'password' => 'Drowssa1',
 			'charset' => 'utf8',
 		),
