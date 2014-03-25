@@ -2,9 +2,20 @@
 
 class CatalogController extends Controller
 {
+	
+	public $term = '';
+	public $department = '';
+	public $course = '';
+	public $section = '';
+	public $product_id = '';
+	
 	public function actionIndex()
 	{
-		$this->render('index');
+		
+		$textbook_catalog = Catalog::model()->findByPK(1);
+		$this->term = $textbook_catalog->term;
+		
+		$this->render('index', array('term'=> $this->term));
 	}
 
 	// Uncomment the following methods and override them if needed
